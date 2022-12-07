@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.asuslife.sampleapps.blesampleomnicare">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- Coarse Location for API <29 (Android 9 and lower) -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Fine Location for API >=29 (Android 10 and higher) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Permission needed for Android Pie to distinguish who is calling -->
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+
+    <!-- Permission needed for Android Oreo call handling -->
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS"/>
+
+    <!-- Permission needed to reject incoming phone calls -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <!-- Media Control Permission for Advanced Music Controls -->
+    <uses-permission android:name="android.Manifest.permission.MEDIA_CONTENT_CONTROL"/>
+
+    <!-- Foreground Permission required for newer Android SDKs -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--  For VivoWatchBP BLE communication service-->
+        <service
+            android:name="com.asuslife.omnicaresdk.BluetoothLeServiceVivoWatchBP"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!--  You can customize NotificationListenerService label name on your own -->
+        <service android:name="com.asuslife.omnicaresdk.NotificationListenerService"
+            android:label="OmniCare Notification"
+            tools:replace="label"/>
+
+        <service android:name="com.garmin.android.gncs.GNCSListenerService"
+            android:label="Garmin Notification"
+            tools:replace="label"/>
+
+        <!--  You can change the foreground notification icon on your own -->
+        <meta-data
+            tools:replace="resource"
+            android:name="com.garmin.health.foreground_notification_icon"
+            android:resource="@mipmap/ic_launcher"/>
+
+    </application>
+
+</manifest>

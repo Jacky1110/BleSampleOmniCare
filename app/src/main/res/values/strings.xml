@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">BleSampleOmniCare</string>
+
+    <string name="loc_service_unavailable">Location services are not available, please try again later.</string>
+
+    <string name="no_paired_devices">No paired device found. Do you want to pair a device?</string>
+    <string name="require_gps">Your GPS seems to be disabled, do you want to enable it?</string>
+    <string name="response_yes">Yes</string>
+    <string name="response_no">No</string>
+
+    <string name="pairing">pairing…</string>
+    <string name="pairing_succeeded">pairing succeeded</string>
+    <string name="enter_passkey">Enter the passkey shown on the device.</string>
+
+    <string name="syncing">syncing…</string>
+    <string name="syncing_succeeded">syncing succeeded</string>
+
+    <string name="fw_version_up_to_date">FW version up to date</string>
+
+    <string name="dialog_yes">YES</string>
+    <string name="dialog_no">NO</string>
+
+    <string name="unpair">Are you sure to disconnect this device?</string>
+
+    <string name="waiting">please wait…</string>
+
+    <string name="toast_invalid_value">Invalid value</string>
+
+    <!--OmniCareSDK foreground service setting-->
+    <string name="omnicaresdk_foreground_service_title">Bluetooth connection service</string>
+    <string name="omnicaresdk_foreground_service_message">Tap and close the Bluetooth connection service to hide this notification</string>
+    <string name="omnicaresdk_foreground_service_channel_name">OmniCareSDK Bluetooth connection service</string>
+</resources>
